@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    app:cardBackgroundColor="@color/admin_card_bg"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_admin_badge_category"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:text="Routes"
+            android:textColor="@color/admin_red"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aujourd'hui, 10:15 AM"
+            android:textColor="@color/admin_text_dim"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvCategory"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvCategory" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Un nid-de-poule profond bloque la voie n° 2"
+            android:textColor="@color/admin_text_white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCategory" />
+
+        <LinearLayout
+            android:id="@+id/layoutReporterInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+            <TextView
+                android:id="@+id/tvReporter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reporté par : Mairame Diallo"
+                android:textColor="@color/admin_text_dim"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/tvReporterBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_admin_badge_urgent"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="1dp"
+                android:text="Or"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivDeptIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@android:drawable/ic_menu_directions"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutReporterInfo"
+            app:tint="@color/admin_text_dim" />
+
+        <TextView
+            android:id="@+id/tvDepartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Maintenance Route"
+            android:textColor="@color/admin_text_dim"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivDeptIcon"
+            app:layout_constraintStart_toEndOf="@id/ivDeptIcon"
+            app:layout_constraintTop_toTopOf="@id/ivDeptIcon" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_admin_badge_in_progress"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="En cours"
+            android:textColor="@color/admin_yellow"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvDepartment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvDepartment" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

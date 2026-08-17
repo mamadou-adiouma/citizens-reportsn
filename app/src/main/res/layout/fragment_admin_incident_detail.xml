@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/admin_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@android:drawable/ic_menu_revert"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/admin_text_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Retour"
+            android:textColor="@color/admin_text_white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivBack"
+            app:layout_constraintStart_toEndOf="@id/ivBack"
+            app:layout_constraintTop_toTopOf="@id/ivBack" />
+
+        <TextView
+            android:id="@+id/tvIncidentId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="ID #29851"
+            android:textColor="@color/admin_text_dim"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/ivBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivBack" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivMainImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_gallery"
+            app:layout_constraintTop_toBottomOf="@id/ivBack"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize12" />
+
+        <TextView
+            android:id="@+id/tvCategoryLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="RÉPARATION URGENTE DE LA ROUTE"
+            android:textColor="@color/admin_primary"
+            android:textSize="10sp"
+            android:letterSpacing="0.05"
+            app:layout_constraintStart_toStartOf="@id/ivMainImage"
+            app:layout_constraintTop_toBottomOf="@id/ivMainImage" />
+
+        <TextView
+            android:id="@+id/tvStatusBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_admin_badge_in_progress"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="2dp"
+            android:text="In Progress"
+            android:textColor="@color/admin_yellow"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvCategoryLabel"
+            app:layout_constraintEnd_toEndOf="@id/ivMainImage"
+            app:layout_constraintTop_toTopOf="@id/tvCategoryLabel" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Obstruction due à un nid-de-poule profond"
+            android:textColor="@color/admin_text_white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/ivMainImage"
+            app:layout_constraintStart_toStartOf="@id/ivMainImage"
+            app:layout_constraintTop_toBottomOf="@id/tvCategoryLabel" />
+
+        <TextView
+            android:id="@+id/tvLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Emplacement : près du carrefour de la place du l'indépendance..."
+            android:textColor="@color/admin_text_dim"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/ivMainImage"
+            app:layout_constraintStart_toStartOf="@id/ivMainImage"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvServiceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="SERVICE TECHNIQUE COMPÉTENT"
+            android:textColor="@color/admin_text_dim"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/ivMainImage"
+            app:layout_constraintTop_toBottomOf="@id/tvLocation" />
+
+        <Spinner
+            android:id="@+id/spService"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_admin_input"
+            app:layout_constraintTop_toBottomOf="@id/tvServiceLabel" />
+
+        <TextView
+            android:id="@+id/tvStateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="DÉFINIR L'ÉTAT ACTUEL DU PIPELINE"
+            android:textColor="@color/admin_text_dim"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/ivMainImage"
+            app:layout_constraintTop_toBottomOf="@id/spService" />
+
+        <LinearLayout
+            android:id="@+id/llStateSelector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvStateLabel">
+            <TextView
+                android:id="@+id/btnStatusRecu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Reçu"
+                android:textColor="@color/admin_text_dim"
+                android:textSize="12sp"
+                android:paddingVertical="8dp"/>
+            <TextView
+                android:id="@+id/btnStatusEnCours"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="En cours"
+                android:textColor="@color/admin_yellow"
+                android:textSize="12sp"
+                android:paddingVertical="8dp"
+                android:background="@drawable/bg_admin_badge_in_progress"/>
+            <TextView
+                android:id="@+id/btnStatusResolu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Résolus"
+                android:textColor="@color/admin_text_dim"
+                android:textSize="12sp"
+                android:paddingVertical="8dp"/>
+            <TextView
+                android:id="@+id/btnStatusClos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Clos"
+                android:textColor="@color/admin_text_dim"
+                android:textSize="12sp"
+                android:paddingVertical="8dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCalendarLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="CALENDRIER DU PROJET"
+            android:textColor="@color/admin_text_dim"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/ivMainImage"
+            app:layout_constraintTop_toBottomOf="@id/llStateSelector" />
+
+        <LinearLayout
+            android:id="@+id/llTimeline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/tvCalendarLabel">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• 3 mars, 11 h 20 - Une équipe a été dépêchée pour localiser l'obstruction dans les égouts"
+                android:textColor="@color/admin_text_dim"
+                android:textSize="12sp"
+                android:paddingBottom="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• 2 mars, 16 h 15 - Incident reçu et validé par le répartiteur"
+                android:textColor="@color/admin_text_dim"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/llTimeline">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/admin_card_bg"
+                android:text="Ajouter une note"
+                android:textAllCaps="false"
+                android:textColor="@color/admin_text_white"
+                app:strokeColor="@color/admin_primary"
+                app:strokeWidth="1dp"/>
+
+            <Button
+                android:id="@+id/btnSaveAssignment"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.5"
+                android:backgroundTint="@color/admin_primary"
+                android:text="Enregistrer le devoir"
+                android:textAllCaps="false"
+                android:textColor="@color/admin_text_white"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

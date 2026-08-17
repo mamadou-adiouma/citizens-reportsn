@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/navigation_incidents"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="Incidents" />
+    <item
+        android:id="@+id/navigation_stats"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Stats" />
+    <item
+        android:id="@+id/navigation_departments"
+        android:icon="@android:drawable/ic_menu_directions"
+        android:title="Départements" />
+</menu>

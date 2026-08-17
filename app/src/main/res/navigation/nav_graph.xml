@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/onboardingFragment">
+
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.citizensreportsn.ui.onboarding.OnboardingFragment"
+        android:label="Bienvenue"
+        tools:layout="@layout/fragment_onboarding">
+        <action
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/onboardingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.citizensreportsn.ui.auth.LoginFragment"
+        android:label="Connexion"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.citizensreportsn.ui.auth.RegisterFragment"
+        android:label="Inscription"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.example.citizensreportsn.ui.auth.OtpVerificationFragment"
+        android:label="Vérification OTP"
+        tools:layout="@layout/fragment_otp_verification">
+        <action
+            android:id="@+id/action_otpFragment_to_authSuccessFragment"
+            app:destination="@id/authSuccessFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/authSuccessFragment"
+        android:name="com.example.citizensreportsn.ui.auth.AuthSuccessFragment"
+        android:label="Succès"
+        tools:layout="@layout/fragment_auth_success">
+        <action
+            android:id="@+id/action_authSuccessFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/onboardingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.citizensreportsn.ui.home.HomeFragment"
+        android:label="Accueil"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_addReportFragment"
+            app:destination="@id/addReportFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_reportDetailFragment"
+            app:destination="@id/reportDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addReportFragment"
+        android:name="com.example.citizensreportsn.ui.report.AddReportFragment"
+        android:label="Nouveau Signalement"
+        tools:layout="@layout/fragment_add_report">
+        <argument
+            android:name="reportId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reportDetailFragment"
+        android:name="com.example.citizensreportsn.ui.report.ReportDetailFragment"
+        android:label="Détail Signalement"
+        tools:layout="@layout/fragment_report_detail">
+        <action
+            android:id="@+id/action_reportDetailFragment_to_addReportFragment"
+            app:destination="@id/addReportFragment" />
+        <argument
+            android:name="reportId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <argument
+            android:name="isPreview"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="isEditable"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="description"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="category"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="imageUri"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="lat"
+            app:argType="float"
+            android:defaultValue="0.0f" />
+        <argument
+            android:name="lng"
+            app:argType="float"
+            android:defaultValue="0.0f" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myReportsFragment"
+        android:name="com.example.citizensreportsn.ui.report.MyReportsFragment"
+        android:label="Mes Signalements"
+        tools:layout="@layout/fragment_my_reports" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.citizensreportsn.ui.profile.ProfileFragment"
+        android:label="Profil"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.citizensreportsn.ui.settings.SettingsFragment"
+        android:label="Paramètres"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

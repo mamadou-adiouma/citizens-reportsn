@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/admin_bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:text="Statistiques"
+            android:textColor="@color/admin_text_white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="Tendances en matière de performances et de pipeline"
+            android:textColor="@color/admin_text_dim"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <!-- Warning Icon/Button like in image -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="20dp"
+            app:cardBackgroundColor="#3F4177"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvSubtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvTitle">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:src="@android:drawable/ic_dialog_alert"
+                app:tint="@color/white" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Donut Chart Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPieChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="24dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RAPPORTS PAR CATÉGORIE DE SERVICES PUBLICS"
+                    android:textColor="#8E8E93"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <!-- Simulating a Donut chart with an image or segmented circles -->
+                    <RelativeLayout
+                        android:layout_width="120dp"
+                        android:layout_height="120dp">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_admin_icon_circle"
+                            android:alpha="0.1" />
+                        <!-- We use the app_logo or a circle for now -->
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/app_logo"
+                            android:alpha="0.2" />
+                        <!-- Manual colorful ring simulation -->
+                        <ProgressBar
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:max="100"
+                            android:progress="70"
+                            android:progressDrawable="@android:drawable/progress_horizontal"
+                            android:rotation="-90"
+                            android:visibility="gone"/>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_vertical">
+                            <View android:layout_width="12dp" android:layout_height="12dp" android:background="@color/admin_red" android:layout_marginEnd="8dp"/>
+                            <TextView android:id="@+id/tvStatRoutes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Routes (42%)" android:textColor="@color/text_primary" android:textSize="13sp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:gravity="center_vertical">
+                            <View android:layout_width="12dp" android:layout_height="12dp" android:background="@color/status_blue" android:layout_marginEnd="8dp"/>
+                            <TextView android:id="@+id/tvStatEaux" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Eaux &amp; Sewer (38%)" android:textColor="@color/text_primary" android:textSize="13sp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:gravity="center_vertical">
+                            <View android:layout_width="12dp" android:layout_height="12dp" android:background="@color/admin_yellow" android:layout_marginEnd="8dp"/>
+                            <TextView android:id="@+id/tvStatEclairage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Eclairage / Lumière (20%)" android:textColor="@color/text_primary" android:textSize="13sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Bar Chart Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvBarChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@id/cvPieChart">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NOMBRE D'INCIDENTS (7 DERNIERS JOURS)"
+                    android:textColor="#8E8E93"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <!-- Simulating Bar Chart -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <!-- Individual bars -->
+                    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="bottom|center_horizontal">
+                        <View android:id="@+id/barM" android:layout_width="16dp" android:layout_height="60dp" android:background="@drawable/bg_neumorphic_button" android:backgroundTint="#5E5CE6" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="M" android:textSize="10sp" android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="bottom|center_horizontal">
+                        <View android:id="@+id/barT" android:layout_width="16dp" android:layout_height="90dp" android:background="@drawable/bg_neumorphic_button" android:backgroundTint="#5E5CE6" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="T" android:textSize="10sp" android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="bottom|center_horizontal">
+                        <View android:id="@+id/barW" android:layout_width="16dp" android:layout_height="110dp" android:background="@drawable/bg_neumorphic_button" android:backgroundTint="#5E5CE6" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="W" android:textSize="10sp" android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="bottom|center_horizontal">
+                        <View android:id="@+id/barT2" android:layout_width="16dp" android:layout_height="40dp" android:background="@drawable/bg_neumorphic_button" android:backgroundTint="#5E5CE6" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="T" android:textSize="10sp" android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="bottom|center_horizontal">
+                        <View android:id="@+id/barF" android:layout_width="16dp" android:layout_height="75dp" android:background="@drawable/bg_neumorphic_button" android:backgroundTint="#5E5CE6" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="F" android:textSize="10sp" android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="bottom|center_horizontal">
+                        <View android:id="@+id/barS" android:layout_width="16dp" android:layout_height="130dp" android:background="@drawable/bg_neumorphic_button" android:backgroundTint="#5E5CE6" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="S" android:textSize="10sp" android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:gravity="bottom|center_horizontal">
+                        <View android:id="@+id/barS2" android:layout_width="16dp" android:layout_height="100dp" android:background="@drawable/bg_neumorphic_button" android:backgroundTint="#5E5CE6" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="S" android:textSize="10sp" android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Bottom Stats Rows -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/cvBarChart">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Résolution moyenne" android:textColor="#8E8E93" android:textSize="11sp"/>
+                    <TextView
+                        android:id="@+id/tvAvgResolution"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4.8 h"
+                        android:textColor="@color/text_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Département le plus sollicité" android:textColor="#8E8E93" android:textSize="11sp"/>
+                    <TextView
+                        android:id="@+id/tvMostRequestedDept"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Maintenance route"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

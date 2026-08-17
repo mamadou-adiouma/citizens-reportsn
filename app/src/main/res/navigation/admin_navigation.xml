@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_navigation"
+    app:startDestination="@id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.citizensreportsn.ui.admin.AdminDashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_admin_dashboard">
+        <action
+            android:id="@+id/action_navigation_dashboard_to_adminIncidentDetailFragment"
+            app:destination="@id/adminIncidentDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_incidents"
+        android:name="com.example.citizensreportsn.ui.admin.AdminIncidentsFragment"
+        android:label="Incidents"
+        tools:layout="@layout/fragment_admin_incidents">
+        <action
+            android:id="@+id/action_navigation_incidents_to_adminIncidentDetailFragment"
+            app:destination="@id/adminIncidentDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_stats"
+        android:name="com.example.citizensreportsn.ui.admin.AdminStatsFragment"
+        android:label="Stats"
+        tools:layout="@layout/fragment_admin_stats" />
+
+    <fragment
+        android:id="@+id/navigation_departments"
+        android:name="com.example.citizensreportsn.ui.admin.AdminDepartmentsFragment"
+        android:label="Departments"
+        tools:layout="@layout/fragment_admin_departments" />
+
+    <fragment
+        android:id="@+id/adminIncidentDetailFragment"
+        android:name="com.example.citizensreportsn.ui.admin.AdminIncidentDetailFragment"
+        android:label="Détail Incident"
+        tools:layout="@layout/fragment_admin_incident_detail" />
+
+</navigation>
