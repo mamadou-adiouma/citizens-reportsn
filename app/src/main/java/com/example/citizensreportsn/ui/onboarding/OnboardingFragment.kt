@@ -50,7 +50,7 @@ class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
             override fun onPageSelected(position: Int) {
                 setCurrentIndicator(position)
                 if (position == slides.size - 1) {
-                    binding.btnNext.text = "Commencer"
+                    binding.btnNext.text = "Commencer Maintenant"
                 } else {
                     binding.btnNext.text = "Suivant"
                 }
